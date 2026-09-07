@@ -1,5 +1,13 @@
 pipeline {
     agent any
+    
+    parameters {
+        choice(
+            name: 'TEST_TAG',
+            choices: ['@smoke', '@sanity', '@regression'],
+            description: 'Select the Playwright test suite'
+        )
+    }
 
     stages {
 
